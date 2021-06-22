@@ -1,0 +1,8 @@
+.container {
+  margin: 0 auto;
+  margin-top: 70px;
+  padding: 40px 40px;
+}
+.custom {
+  width: 78px !important;
+}
