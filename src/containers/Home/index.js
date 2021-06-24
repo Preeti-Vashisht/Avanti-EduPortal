@@ -1,36 +1,61 @@
 import React from "react";
-import { Jumbotron, Row, Col, Button } from "react-bootstrap";
-import { NavLink } from "react-router-dom";
+import { Container, Row, Col, Button } from "react-bootstrap";
+import { NavLink, useHistory } from "react-router-dom";
 import Layout from "./../../Components/Layout";
 import "./style.css";
 function Home(props) {
+  const history = useHistory();
+  function handleClick(path) {
+    history.push(path);
+  }
   return (
-    <div>
+    <>
       <Layout>
-        <div className="container text-center">
-          <Row style={{ margin: 50 }}>
-            <Col md={{ span: 4, offset: 4 }}>
-              <Button variant="primary" size="lg" block>
+        <Container className="options text-center">
+          <Row className="rows">
+            <Col md={{span:4,offset:4}} >
+              <Button
+                variant="primary"
+                size="lg"
+                block
+                onClick={() => {
+                  handleClick("class-recordings");
+                }}
+              >
                 Class Recordings
               </Button>
             </Col>
           </Row>
-          <Row style={{ margin: 50 }}>
+          <Row className="rows" >
             <Col md={{ span: 4, offset: 4 }}>
-              <Button variant="primary" size="lg" block>
+              <Button
+                variant="primary"
+                size="lg"
+                block
+                onClick={() => {
+                  handleClick("study-material");
+                }}
+              >
                 Study Material
               </Button>
             </Col>
           </Row>
 
-          <Row style={{ margin: 50 }}>
+          <Row className="rows">
             <Col md={{ span: 4, offset: 4 }}>
-              <Button variant="primary" size="lg" block>
+              <Button
+                variant="primary"
+                size="lg"
+                block
+                onClick={() => {
+                  handleClick("assignments");
+                }}
+              >
                 Assignments
               </Button>
             </Col>
           </Row>
-        </div>
+        </Container>
       </Layout>
 
       {/* <Jumbotron
@@ -39,7 +64,7 @@ function Home(props) {
       >
         <h1>Welcome to Admin Dashboard</h1>
       </Jumbotron> */}
-    </div>
+    </>
   );
 }
 

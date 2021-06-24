@@ -1,8 +1,11 @@
-.container {
+.options {
   margin: 0 auto;
-  margin-top: 70px;
-  padding: 40px 40px;
+  margin-top: 80px;
+  border: 5 solid rgb(155, 147, 147);
 }
 .custom {
   width: 78px !important;
+}
+.rows{
+   margin: 50px;
 }

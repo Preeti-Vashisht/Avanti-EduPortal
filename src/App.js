@@ -6,6 +6,7 @@ import Signin from "./containers/signin";
 import PrivateRoute from "./Components/HOC/PrivateRoute";
 import { useSelector, useDispatch } from "react-redux";
 import { isUserLoggedIn } from "./actions/auth.actions";
+import Assignment from "./containers/Assignment";
 
 function App() {
   const auth = useSelector((state) => state.authReducer);
@@ -20,6 +21,19 @@ function App() {
       <Switch>
         <Route exact path="/" component={Home} />
         <Route path="/signin" component={Signin} />
+        <Route path="/assignments" component={Assignment} />
+        <Route
+          path="/class-recordings"
+          component={() => {
+            return <hi>assignments</hi>;
+          }}
+        />
+        <Route
+          path="/study-material"
+          component={() => {
+            return <hi>assignments</hi>;
+          }}
+        />
       </Switch>
     </div>
   );
