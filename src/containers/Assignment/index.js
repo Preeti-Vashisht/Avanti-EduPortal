@@ -1,20 +1,105 @@
-import React from "react";
-import { Jumbotron, Row, Col, Button,Container } from "react-bootstrap";
-import { NavLink, useHistory } from "react-router-dom";
+import React, { useState } from "react";
+import { Jumbotron, Row, Col, Button, Container } from "react-bootstrap";
 import Layout from "./../../Components/Layout";
-import Subject from "./../../Components/Subjects";
+import { Viewer } from "@react-pdf-viewer/core";
+import { defaultLayoutPlugin } from "@react-pdf-viewer/default-layout";
+import "@react-pdf-viewer/core/lib/styles/index.css";
+import "@react-pdf-viewer/default-layout/lib/styles/index.css";
+import { Worker } from "@react-pdf-viewer/core";
+import filePDF from "./../../assets/dummy.pdf";
 import "./style.css";
 function Assignment(props) {
-  const history = useHistory();
+  const [viewPdf, setViewPdf] = useState(false);
+  const defaultLayoutPluginInstance = defaultLayoutPlugin();
+  const onClickHandler = () => {
+    setViewPdf(true);
+  };
+  const pdfContainer = () => {
+    return (
+      <Container className="text-center">
+        <h1>
+          <i
+            class="bi bi-x-circle"
+            onClick={() => {
+              setViewPdf(false);
+            }}
+          ></i>
+        </h1>
+        <Row>
+          <Worker workerUrl="https://unpkg.com/pdfjs-dist@2.6.347/build/pdf.worker.min.js">
+            <Viewer fileUrl={filePDF} plugins={[defaultLayoutPluginInstance]} />
+          </Worker>
+        </Row>
+        <Row className="bottom-row">
+          <Col md={{ span: 4, offset: 4 }}>
+            <h2>Answer Submission</h2>
+
+            <Button variant="primary" size="lg" block onClick={() => {}}>
+              Add Image
+            </Button>
+            <Button variant="secondary" size="lg" block onClick={() => {}}>
+              Submit Assignment
+            </Button>
+          </Col>
+        </Row>
+      </Container>
+    );
+  };
   return (
     <>
-      <Layout>   
-      <Container className="text-center">
-      <Subject subjectName="Maths" date="11/12/2019" chapter="Algebra" teacher="Sanjana Singh"/>
-      <Subject subjectName="Chemistry" date="11/12/2019" chapter="Molecules" teacher="Sanjana Singh"/>
-      <Subject subjectName="Physics" date="11/12/2019" chapter="Gravitation" teacher="Sanjana Singh"/>
-        </Container>
-        </Layout>
+      <Layout>
+        {viewPdf ? (
+          pdfContainer()
+        ) : (
+          <Container className="text-center">
+            <Row className="rows">
+              <Col md={{ span: 4, offset: 4 }} className="cols">
+                <h1>Chemistry</h1>
+                <p className="items">Date:11/12/1995</p>
+                <p className="items">Chapter:11/12/1995</p>
+                <p className="items">Teacheer:Sanjana Bisht</p>
+                <Button
+                  variant="primary"
+                  size="lg"
+                  onClick={() => onClickHandler()}
+                >
+                  See Assignment
+                </Button>
+              </Col>
+            </Row>
+            <Row className="rows">
+              <Col md={{ span: 4, offset: 4 }} className="cols">
+                <h1>Maths</h1>
+                <p className="items">Date:11/12/1995</p>
+                <p className="items">Chapter:11/12/1995</p>
+                <p className="items">Teacheer:Sanjana Bisht</p>
+                <Button
+                  variant="primary"
+                  size="lg"
+                  onClick={() => onClickHandler()}
+                >
+                  See Assignment
+                </Button>
+              </Col>
+            </Row>
+            <Row className="rows">
+              <Col md={{ span: 4, offset: 4 }} className="cols">
+                <h1>Physics</h1>
+                <p className="items">Date:11/12/1995</p>
+                <p className="items">Chapter:11/12/1995</p>
+                <p className="items">Teacheer:Sanjana Bisht</p>
+                <Button
+                  variant="primary"
+                  size="lg"
+                  onClick={() => onClickHandler()}
+                >
+                  See Assignment
+                </Button>
+              </Col>
+            </Row>
+          </Container>
+        )}
+      </Layout>
     </>
   );
 }
