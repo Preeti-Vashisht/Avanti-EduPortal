@@ -1,5 +1,5 @@
 import React from "react";
-import { Jumbotron, Row, Col, Button } from "react-bootstrap";
+import { Container, Row, Col, Button } from "react-bootstrap";
 import { NavLink, useHistory } from "react-router-dom";
 import Layout from "./../../Components/Layout";
 import "./style.css";
@@ -9,11 +9,11 @@ function Home(props) {
     history.push(path);
   }
   return (
-    <div>
+    <>
       <Layout>
-        <div className="container text-center">
-          <Row style={{ margin: 50 }}>
-            <Col md={{ span: 4, offset: 4 }}>
+        <Container className="options text-center">
+          <Row className="rows">
+            <Col md={{span:4,offset:4}} >
               <Button
                 variant="primary"
                 size="lg"
@@ -26,7 +26,7 @@ function Home(props) {
               </Button>
             </Col>
           </Row>
-          <Row style={{ margin: 50 }}>
+          <Row className="rows" >
             <Col md={{ span: 4, offset: 4 }}>
               <Button
                 variant="primary"
@@ -41,7 +41,7 @@ function Home(props) {
             </Col>
           </Row>
 
-          <Row style={{ margin: 50 }}>
+          <Row className="rows">
             <Col md={{ span: 4, offset: 4 }}>
               <Button
                 variant="primary"
@@ -55,7 +55,7 @@ function Home(props) {
               </Button>
             </Col>
           </Row>
-        </div>
+        </Container>
       </Layout>
 
       {/* <Jumbotron
@@ -64,7 +64,7 @@ function Home(props) {
       >
         <h1>Welcome to Admin Dashboard</h1>
       </Jumbotron> */}
-    </div>
+    </>
   );
 }
 

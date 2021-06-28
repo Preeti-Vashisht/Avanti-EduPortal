@@ -6,7 +6,7 @@ import Signin from "./containers/signin";
 import PrivateRoute from "./Components/HOC/PrivateRoute";
 import { useSelector, useDispatch } from "react-redux";
 import { isUserLoggedIn } from "./actions/auth.actions";
-import Assignment from "./Components/Assignments";
+import Assignment from "./containers/Assignment";
 
 function App() {
   const auth = useSelector((state) => state.authReducer);
