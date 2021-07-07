@@ -15,8 +15,15 @@ function Header(props) {
     return (
       <Nav>
         <li className="nav-item">
-          <span onClick={userlogout} className="nav-link">
-            LOGOUT
+          <NavLink to="/" className="nav-link">
+            HOME
+          </NavLink>
+        </li>
+        <li className="nav-item">
+          <span onClick={userlogout}>
+            <NavLink to="#" className="nav-link">
+              LOGOUT
+            </NavLink>
           </span>
         </li>
       </Nav>

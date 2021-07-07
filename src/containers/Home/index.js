@@ -13,7 +13,7 @@ function Home(props) {
       <Layout>
         <Container className="options text-center">
           <Row className="rows">
-            <Col md={{span:4,offset:4}} >
+            <Col md={{ span: 4, offset: 4 }}>
               <Button
                 variant="primary"
                 size="lg"
@@ -26,7 +26,7 @@ function Home(props) {
               </Button>
             </Col>
           </Row>
-          <Row className="rows" >
+          <Row className="rows">
             <Col md={{ span: 4, offset: 4 }}>
               <Button
                 variant="primary"
@@ -57,13 +57,6 @@ function Home(props) {
           </Row>
         </Container>
       </Layout>
-
-      {/* <Jumbotron
-        style={{ margin: "Srem", background: "#fff" }}
-        className="text-center"
-      >
-        <h1>Welcome to Admin Dashboard</h1>
-      </Jumbotron> */}
     </>
   );
 }

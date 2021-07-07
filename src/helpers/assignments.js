@@ -1,0 +1,38 @@
+export const assignments = [
+  {
+    subject: "chemistry",
+    date: "11/12/1995",
+    chapter: "Matter",
+    teacher: "Sanjana Bisht",
+    submissionStatus: false,
+    submissionDate: "",
+    pdf: "./../../assets/chemistry.pdf",
+  },
+  {
+    subject: "Physics",
+    date: "11/12/1995",
+    chapter: "Laws of Motion",
+    teacher: "Sanjana Bisht",
+    submissionStatus: false,
+    submissionDate: "",
+    pdf: "./../../assets/physics.pdf",
+  },
+  {
+    subject: "Chemistry",
+    date: "11/12/1995",
+    chapter: "Molecules",
+    teacher: "Sanjana Bisht",
+    submissionStatus: false,
+    submissionDate: "",
+    pdf: "./../../assets/chemistry.pdf",
+  },
+  {
+    subject: "Maths",
+    date: "11/12/1995",
+    chapter: "Trignometry",
+    teacher: "Sanjana Bisht",
+    submissionStatus: false,
+    submissionDate: "",
+    pdf: "./../../assets/maths.pdf",
+  },
+];
