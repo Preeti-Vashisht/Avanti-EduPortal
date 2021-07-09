@@ -60,32 +60,6 @@ function Assignment(props) {
           </Modal.Footer>
         </Modal>
         <Container className="text-center">
-          <Row>
-            <Col md={{ span: 4, offset: 4 }}>
-              <h1>Chemistry</h1>
-              <p className="items">Date:11/12/1995</p>
-              <p className="items">Chapter:Matter</p>
-              <p className="items">Teacheer:Sanjana Bisht</p>
-            </Col>
-          </Row>
-          <h1>
-            <i
-              class="bi bi-x-circle"
-              onClick={() => {
-                setViewPdf(false);
-              }}
-            ></i>
-          </h1>
-          <Row>
-            <Col>
-              <Worker workerUrl="https://unpkg.com/pdfjs-dist@2.6.347/build/pdf.worker.min.js">
-                <Viewer
-                  fileUrl={filePDF}
-                  plugins={[defaultLayoutPluginInstance]}
-                />
-              </Worker>
-            </Col>
-          </Row>
           <Row className="bottom-row">
             <Col md={{ span: 4, offset: 4 }}>
               <h2>Answer Submission</h2>
@@ -124,6 +98,32 @@ function Assignment(props) {
                     </span>
                   </p>
                 ))}
+            </Col>
+          </Row>
+          <Row>
+            <Col md={{ span: 4, offset: 4 }}>
+              <h1>Chemistry</h1>
+              <p className="items">Date:11/12/1995</p>
+              <p className="items">Chapter:Matter</p>
+              <p className="items">Teacheer:Sanjana Bisht</p>
+            </Col>
+          </Row>
+          <h1>
+            <i
+              class="bi bi-x-circle"
+              onClick={() => {
+                setViewPdf(false);
+              }}
+            ></i>
+          </h1>
+          <Row>
+            <Col>
+              <Worker workerUrl="https://unpkg.com/pdfjs-dist@2.6.347/build/pdf.worker.min.js">
+                <Viewer
+                  fileUrl={filePDF}
+                  plugins={[defaultLayoutPluginInstance]}
+                />
+              </Worker>
             </Col>
           </Row>
         </Container>
