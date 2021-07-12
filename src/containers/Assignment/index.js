@@ -60,9 +60,34 @@ function Assignment(props) {
           </Modal.Footer>
         </Modal>
         <Container className="text-center">
-          <Row className="bottom-row">
+          <Row style={{ opacity: 0.3 }}>
             <Col md={{ span: 4, offset: 4 }}>
-              <h2>Answer Submission</h2>
+              <h3
+                style={{
+                  marginTop: "9px",
+                  marginBottom: "0.1rem",
+                  fontSize: "25px",
+                  fontWeight: "700",
+                }}
+              >
+                Physics
+              </h3>
+              <p style={{ marginBottom: "0.1rem", fontSize: "10px" }}>
+                Date:11/06/2021
+              </p>
+              <p style={{ marginBottom: "0.1rem", fontSize: "10px" }}>
+                Chapter:Gravity
+              </p>
+              <p style={{ marginBottom: "0.1rem", fontSize: "10px" }}>
+                Teacher: Mrs. Sanjana Singh
+              </p>
+            </Col>
+          </Row>
+          <Row className="ans-submit">
+            <Col md={{ span: 4, offset: 4 }}>
+              <h3 style={{ fontSize: "20px", fontWeight: "bold" }}>
+                Answer Submission
+              </h3>
               <input
                 type="file"
                 ref={fileInput}
@@ -72,7 +97,12 @@ function Assignment(props) {
               />
               <Button
                 variant="primary"
-                size="lg"
+                size="md"
+                style={{
+                  borderRadius: "10px",
+                  backgroundColor: "#6558F5",
+                  padding: "4px",
+                }}
                 block
                 onClick={(event) => {
                   fileInput.current.click();
@@ -80,10 +110,21 @@ function Assignment(props) {
               >
                 Add Image
               </Button>
-              <Button variant="secondary" size="lg" block onClick={handleShow}>
+              <Button
+                variant="secondary"
+                size="md"
+                style={{
+                  borderRadius: "10px",
+                  padding: "4px",
+                }}
+                block
+                onClick={handleShow}
+              >
                 Submit Assignment
               </Button>
-              {files.length > 0 &&
+            </Col>
+          </Row>
+          {/* {files.length > 0 &&
                 files.map((file) => (
                   <p>
                     <span>
@@ -98,16 +139,8 @@ function Assignment(props) {
                     </span>
                   </p>
                 ))}
-            </Col>
-          </Row>
-          <Row>
-            <Col md={{ span: 4, offset: 4 }}>
-              <h1>Chemistry</h1>
-              <p className="items">Date:11/12/1995</p>
-              <p className="items">Chapter:Matter</p>
-              <p className="items">Teacheer:Sanjana Bisht</p>
-            </Col>
-          </Row>
+           
+
           <h1>
             <i
               class="bi bi-x-circle"
@@ -125,7 +158,7 @@ function Assignment(props) {
                 />
               </Worker>
             </Col>
-          </Row>
+          </Row> */}
         </Container>
       </>
     );
@@ -136,24 +169,33 @@ function Assignment(props) {
         {viewPdf ? (
           pdfContainer()
         ) : (
-          <Container className="text-center">
+          <Container className="text-center" fluid>
+            <Row className="head">
+              <Col className="cols-head">
+                <h1>Assignment</h1>
+              </Col>
+            </Row>
+
             <Row className="rows">
               <Col md={{ span: 4, offset: 4 }} className="cols">
-                <h1>Chemistry</h1>
-                <p className="items">Date:11/12/1995</p>
-                <p className="items">Chapter:Matter</p>
-                <p className="items">Teacheer:Sanjana Bisht</p>
-                {submit && (
-                  <p className="items" style={{ color: "green" }}>
-                    <i class="bi bi-check-circle"></i>
-                    <span style={{ marginLeft: 5 }}>
-                      Submitted on 01/06/2021
-                    </span>
-                  </p>
-                )}
+                <h1 className="sub-head">Chemistry</h1>
+                <div className="title">
+                  <p className="items">Date:11/12/1995</p>
+                  <p className="items">Chapter:Matter</p>
+                  <p className="items">Teacher: Mrs. Sanjana Singh</p>
+                  {submit && (
+                    <p className="items" style={{ color: "green" }}>
+                      <i class="bi bi-check-circle"></i>
+                      <span style={{ marginLeft: 5 }}>
+                        Submitted on 01/06/2021
+                      </span>
+                    </p>
+                  )}
+                </div>
                 <Button
                   variant="primary"
-                  size="lg"
+                  size="md"
+                  style={{ backgroundColor: "#6558F5", borderRadius: "10px" }}
                   onClick={() => viewAssignmentHandler()}
                 >
                   See Assignment
@@ -162,13 +204,16 @@ function Assignment(props) {
             </Row>
             <Row className="rows">
               <Col md={{ span: 4, offset: 4 }} className="cols">
-                <h1>Maths</h1>
-                <p className="items">Date:11/12/1995</p>
-                <p className="items">Chapter:Trignometry</p>
-                <p className="items">Teacheer:Sanjana Bisht</p>
+                <h1 className="sub-head">Physics</h1>
+                <div className="title">
+                  <p className="items">Date:11/06/2021</p>
+                  <p className="items">Chapter:Gravity</p>
+                  <p className="items">Teacher: Mrs. Sanjana Singh</p>
+                </div>
                 <Button
                   variant="primary"
-                  size="lg"
+                  size="md"
+                  style={{ backgroundColor: "#6558F5", borderRadius: "10px" }}
                   onClick={() => viewAssignmentHandler()}
                 >
                   See Assignment
@@ -177,13 +222,16 @@ function Assignment(props) {
             </Row>
             <Row className="rows">
               <Col md={{ span: 4, offset: 4 }} className="cols">
-                <h1>Physics</h1>
-                <p className="items">Date:11/12/1995</p>
-                <p className="items">Chapter:Motion</p>
-                <p className="items">Teacheer:Sanjana Bisht</p>
+                <h1 className="sub-head">Maths</h1>
+                <div className="title">
+                  <p className="items">Date:11/12/1995</p>
+                  <p className="items">Chapter:Trignometry</p>
+                  <p className="items">Teacher: Mrs. Sanjana Singh</p>
+                </div>
                 <Button
                   variant="primary"
-                  size="lg"
+                  size="md"
+                  style={{ backgroundColor: "#6558F5", borderRadius: "10px" }}
                   onClick={() => viewAssignmentHandler()}
                 >
                   See Assignment

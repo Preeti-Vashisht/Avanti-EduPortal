@@ -1,19 +1,33 @@
 .rows {
   margin: 8px;
 }
+.head {
+  margin-top: 25px;
+  margin-bottom: 35px;
+  border: 3px solid #008c7d;
+  background-color: #8dd7cf;
+}
 .bottom-row {
   margin: 8px;
   border: 0.5px solid grey;
   box-shadow: 5px 10px 20px #888888;
   padding-bottom: 10px;
 }
+
+.ans-submit {
+  margin-top: 30px;
+}
+.sub-head {
+  margin-top: 20px;
+}
 .align-right {
   margin-right: -110%;
 }
+
 .cols {
   border: 1px solid grey;
-  box-shadow: 5px 10px 20px #888888;
-  padding-bottom: 10px;
+  border-radius: 8px;
+  padding-bottom: 20px;
 }
 .items {
   margin-bottom: 0.2rem;
@@ -43,4 +57,8 @@
 #pdfviewer .viewer-menu .viewer-icon {
   color: #000;
   stroke: #000;
+}
+.title {
+  margin-bottom: 20px;
+  margin-top: 20px;
 }

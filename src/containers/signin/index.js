@@ -6,6 +6,7 @@ import { useDispatch } from "react-redux";
 import { login, isUserLoggedIn } from "../../actions/auth.actions";
 import { useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
+import "./style.css";
 
 function Signin(props) {
   const [studentId, setStudentId] = useState("");
@@ -27,7 +28,7 @@ function Signin(props) {
     <div>
       <Layout />
       <Container>
-        <Row style={{ margin: 50 }}>
+        <Row className="top-buffer">
           <Col md={{ span: 6, offset: 3 }}>
             <Form onSubmit={userLogin}>
               <Input
@@ -37,8 +38,12 @@ function Signin(props) {
                 onChange={(e) => setStudentId(e.target.value)}
               />
               <div className="text-center">
-                <Button variant="primary" type="submit">
-                  Submit
+                <Button
+                  variant="primary"
+                  style={{ backgroundColor: "#6558F5", marginTop: "18px" }}
+                  type="submit"
+                >
+                  Log In!
                 </Button>
               </div>
             </Form>

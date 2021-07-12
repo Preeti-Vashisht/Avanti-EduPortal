@@ -12,11 +12,12 @@ function Home(props) {
     <>
       <Layout>
         <Container className="options text-center">
-          <Row className="rows">
+          <Row className="rows ">
             <Col md={{ span: 4, offset: 4 }}>
               <Button
                 variant="primary"
                 size="lg"
+                style={{ backgroundColor: "#6558F5" }}
                 block
                 onClick={() => {
                   handleClick("class-recordings");
@@ -31,6 +32,7 @@ function Home(props) {
               <Button
                 variant="primary"
                 size="lg"
+                style={{ backgroundColor: "#6558F5" }}
                 block
                 onClick={() => {
                   handleClick("study-material");
@@ -46,6 +48,7 @@ function Home(props) {
               <Button
                 variant="primary"
                 size="lg"
+                style={{ backgroundColor: "#6558F5" }}
                 block
                 onClick={() => {
                   handleClick("assignments");
