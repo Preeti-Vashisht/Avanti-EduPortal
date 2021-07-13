@@ -8,6 +8,7 @@ import Signin from "./containers/signin";
 import PrivateRoute from "./Components/HOC/PrivateRoute";
 import { useSelector, useDispatch } from "react-redux";
 import { isUserLoggedIn } from "./actions/auth.actions";
+import Subjects from "./containers/Subjects";
 import Assignment from "./containers/Assignment";
 
 function App() {
@@ -23,7 +24,9 @@ function App() {
       <Switch>
         <PrivateRoute exact path="/" component={Home} />
         <Route path="/signin" component={Signin} />
-        <PrivateRoute path="/assignments" component={Assignment} />
+        <PrivateRoute path="/assignments" component={Subjects} />
+        <PrivateRoute path="/view-assignment" component={Assignment} />
+
         <PrivateRoute path="/class-recordings" component={ClassRecordings} />
         <PrivateRoute path="/study-material" component={StudyMaterial} />
       </Switch>
