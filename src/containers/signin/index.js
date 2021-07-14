@@ -7,6 +7,7 @@ import { login, isUserLoggedIn } from "../../actions/auth.actions";
 import { useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import "./style.css";
+import Footer from "../../Components/Footer";
 
 function Signin(props) {
   const [studentId, setStudentId] = useState("");
@@ -50,6 +51,7 @@ function Signin(props) {
           </Col>
         </Row>
       </Container>
+      <Footer />
     </div>
   );
 }

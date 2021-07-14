@@ -1,5 +1,6 @@
 import React from "react";
 import { Jumbotron } from "react-bootstrap";
+import Footer from "../../Components/Footer";
 import Layout from "../../Components/Layout";
 function StudyMaterial(props) {
   return (
@@ -12,6 +13,7 @@ function StudyMaterial(props) {
           <h1>Welcome to Study Material</h1>
         </Jumbotron>
       </Layout>
+      <Footer />
     </div>
   );
 }

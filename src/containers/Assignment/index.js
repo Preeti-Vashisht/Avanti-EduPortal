@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import { Container, Form, Button, Row, Col, Modal } from "react-bootstrap";
 import Layout from "../../Components/Layout";
-import { Document, Page, pdfjs } from "react-pdf";
+import { useHistory } from "react-router-dom";
+// import { Document, Page, pdfjs } from "react-pdf";
 
 import url from "./../../assets/dummy.pdf";
 
 function Assignment(props) {
-  pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
+  let history = useHistory();
+  // pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
   const fileObj = [];
   const fileArray = [];
   const [files, setFiles] = useState([]);
@@ -21,10 +23,10 @@ function Assignment(props) {
   const handleClose = () => {
     setShow(false);
   };
-  function onDocumentLoadSuccess({ numPages }) {
-    setNumPages(numPages);
-    setPageNumber(1);
-  }
+  // function onDocumentLoadSuccess({ numPages }) {
+  //   setNumPages(numPages);
+  //   setPageNumber(1);
+  // }
   const handleShow = () => {
     if (files.length > 0) {
       setMessage("Asignment Submitted successfully");
@@ -50,6 +52,21 @@ function Assignment(props) {
   return (
     <div>
       <Layout>
+        <Button
+          variant="primary"
+          size="md"
+          onClick={() => history.goBack()}
+          style={{
+            borderRadius: "15px",
+            backgroundColor: "#6558F5",
+            margin: "14px 10px  3px",
+            height: "35px",
+            borderColor: "none",
+          }}
+        >
+          {"< Home"}
+        </Button>
+        <hr style={{ marginTop: "4px", marginBottom: "0px" }} />
         <>
           <Modal show={show} onHide={handleClose}>
             <Modal.Body>{message}</Modal.Body>

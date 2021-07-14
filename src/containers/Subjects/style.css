@@ -61,3 +61,14 @@
   margin-bottom: 20px;
   margin-top: 20px;
 }
+.footr {
+  margin-top: 1rem;
+  padding: 1rem;
+  text-align: center;
+  text-decoration: underline;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  font-size: 20px;
+  color: #6558f5;
+}

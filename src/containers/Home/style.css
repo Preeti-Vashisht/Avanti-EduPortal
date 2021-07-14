@@ -1,11 +1,9 @@
-.options {
-  margin: 0 auto;
-  margin-top: 150px;
-  border: 5 solid rgb(155, 147, 147);
-}
 .custom {
   width: 78px !important;
 }
-.rows {
-  margin: 50px;
+
+.head {
+  margin-top: 15px;
+  border: 3px solid #008c7d;
+  background-color: #8dd7cf;
 }

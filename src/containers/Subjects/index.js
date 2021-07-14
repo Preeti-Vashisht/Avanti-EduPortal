@@ -4,6 +4,7 @@ import Layout from "../../Components/Layout";
 import { useHistory } from "react-router-dom";
 
 import "./style.css";
+import Footer from "../../Components/Footer";
 function Subjects(props) {
   const history = useHistory();
   const viewAssignmentHandler = () => {
@@ -12,6 +13,21 @@ function Subjects(props) {
   return (
     <>
       <Layout>
+        <Button
+          variant="primary"
+          size="md"
+          onClick={() => history.goBack()}
+          style={{
+            borderRadius: "15px",
+            backgroundColor: "#6558F5",
+            margin: "14px 10px  3px",
+            height: "35px",
+            borderColor: "none",
+          }}
+        >
+          {"< Home"}
+        </Button>
+        <hr style={{ marginTop: "4px", marginBottom: "0px" }} />
         <Container className="text-center" fluid>
           <Row className="head">
             <Col className="cols-head">
@@ -82,6 +98,9 @@ function Subjects(props) {
           </Row>
         </Container>
       </Layout>
+      <div className="footr">
+        <p>Contact Customer Support</p>
+      </div>
     </>
   );
 }

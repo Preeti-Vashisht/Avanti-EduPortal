@@ -1,5 +1,6 @@
 import React from "react";
 import { Jumbotron } from "react-bootstrap";
+import Footer from "../../Components/Footer";
 import Layout from "../../Components/Layout";
 
 function ClassRecordings(props) {
@@ -13,6 +14,7 @@ function ClassRecordings(props) {
           <h1>Welcome to class Recordings</h1>
         </Jumbotron>
       </Layout>
+      <Footer />
     </div>
   );
 }
