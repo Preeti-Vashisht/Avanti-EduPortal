@@ -2,47 +2,37 @@ import React, { useState } from "react";
 import { Container, Form, Button, Row, Col, Modal } from "react-bootstrap";
 import Layout from "../../Components/Layout";
 import { useHistory } from "react-router-dom";
-// import { Document, Page, pdfjs } from "react-pdf";
-
-import url from "./../../assets/dummy.pdf";
+import { Viewer } from "@react-pdf-viewer/core";
+import { defaultLayoutPlugin } from "@react-pdf-viewer/default-layout";
+import "@react-pdf-viewer/core/lib/styles/index.css";
+import "@react-pdf-viewer/default-layout/lib/styles/index.css";
+import { Worker } from "@react-pdf-viewer/core";
+import filePDF from "./../../assets/dummy.pdf";
 
 function Assignment(props) {
   let history = useHistory();
-  // pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
-  const fileObj = [];
-  const fileArray = [];
+  const defaultLayoutPluginInstance = defaultLayoutPlugin();
   const [files, setFiles] = useState([]);
+  const [fullscreen, setFullscreen] = useState(true);
   const fileInput = React.useRef(null);
   const [show, setShow] = useState(false);
-  // const [open, setOpen] = useState(false);
-  // const [currentSlide, setCurrentSlide] = useState(0);
-  const [numPages, setNumPages] = useState(null);
-  const [pageNumber, setPageNumber] = useState(1);
+  const [imgPreview, setImagePreview] = useState();
   const [message, setMessage] = useState("");
 
   const handleClose = () => {
     setShow(false);
   };
-  // function onDocumentLoadSuccess({ numPages }) {
-  //   setNumPages(numPages);
-  //   setPageNumber(1);
-  // }
-  const handleShow = () => {
-    if (files.length > 0) {
-      setMessage("Asignment Submitted successfully");
-      setShow(true);
-    } else {
-      setMessage("Please select a image");
-      setShow(true);
-    }
+  const handleShow = (url) => {
+    // setImagePreview(url);
+    // setShow(true);
+    console.log(url);
   };
 
-  const uploadMultipleFiles = (e) => {
-    fileObj.push(e.target.files);
-    for (let i = 0; i < fileObj[0].length; i++) {
-      fileArray.push(fileObj[0][i]);
-    }
-    setFiles(fileArray);
+  const uploadFiles = (e) => {
+    let fileObj = e.target.files[0];
+    fileObj.url = URL.createObjectURL(fileObj);
+    setFiles((prevFiles) => [...prevFiles, fileObj]);
+    console.log(files);
   };
   const removeFile = (name) => {
     let newFiles = files.filter((file) => file.name !== name);
@@ -68,11 +58,26 @@ function Assignment(props) {
         </Button>
         <hr style={{ marginTop: "4px", marginBottom: "0px" }} />
         <>
-          <Modal show={show} onHide={handleClose}>
-            <Modal.Body>{message}</Modal.Body>
+          <Modal
+            show={show}
+            // fullscreen={fullscreen}
+            onHide={handleClose}
+            // dialogClassName="modal-90h"
+            aria-labelledby="contained-modal-title-vcenter"
+            centered
+          >
+            <Modal.Header closeButton>
+              <Modal.Title id="example-custom-modal-styling-title">
+                Custom Modal Styling
+              </Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              {/* <img src={imgPreview} w-100 alt="imgPreview" /> */}
+              <h1>{imgPreview}</h1>
+            </Modal.Body>
             <Modal.Footer>
               <Button variant="secondary" onClick={handleClose}>
-                Close
+                Cancel
               </Button>
             </Modal.Footer>
           </Modal>
@@ -108,8 +113,7 @@ function Assignment(props) {
                 <input
                   type="file"
                   ref={fileInput}
-                  onChange={uploadMultipleFiles}
-                  multiple
+                  onChange={uploadFiles}
                   style={{ display: "none" }}
                 />
                 <Button
@@ -138,7 +142,7 @@ function Assignment(props) {
                     }`,
                   }}
                   block
-                  onClick={handleShow}
+                  // onClick={handleShow}
                 >
                   Submit Assignment
                 </Button>
@@ -154,7 +158,7 @@ function Assignment(props) {
                         color: "#3664BE",
                         textDecorationLine: "underline",
                       }}
-                      // onClick={openSlideshow(index)}
+                      onClick={handleShow(file.url)}
                       block
                     >
                       <span>
@@ -180,36 +184,16 @@ function Assignment(props) {
                 /> */}
               </Col>
             </Row>
-            {/* <Row>
-            <div className="main">
-              <Document file={url} onLoadSuccess={onDocumentLoadSuccess}>
-                <Page pageNumber={pageNumber} width={600} />
-              </Document>
-              <div>
-                <div className="pagec">
-                  Page {pageNumber || (numPages ? 1 : "--")} of{" "}
-                  {numPages || "--"}
-                </div>
-                <div className="buttonc">
-                  <button
-                    type="button"
-                    disabled={pageNumber <= 1}
-                    onClick={previousPage}
-                    className="Pre"
-                  >
-                    Previous
-                  </button>
-                  <button
-                    type="button"
-                    disabled={pageNumber >= numPages}
-                    onClick={nextPage}
-                  >
-                    Next
-                  </button>
-                </div>
-              </div>
-            </div>
-          </Row> */}
+            <Row style={{ marginTop: "50px" }}>
+              <Col>
+                <Worker workerUrl="https://unpkg.com/pdfjs-dist@2.6.347/build/pdf.worker.min.js">
+                  <Viewer
+                    fileUrl={filePDF}
+                    plugins={[defaultLayoutPluginInstance]}
+                  />
+                </Worker>
+              </Col>
+            </Row>
           </Container>
         </>
       </Layout>
