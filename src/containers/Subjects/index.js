@@ -1,12 +1,13 @@
-import React, { useState, useRef } from "react";
+import React from "react";
 import { Jumbotron, Row, Col, Button, Container, Modal } from "react-bootstrap";
 import Layout from "../../Components/Layout";
 import { useHistory } from "react-router-dom";
-
 import "./style.css";
-import Footer from "../../Components/Footer";
 function Subjects(props) {
   const history = useHistory();
+  const submit = props.location.search
+    ? props.location.search.split("=")[1]
+    : false;
   const viewAssignmentHandler = () => {
     history.push("/view-assignment");
   };
@@ -41,15 +42,8 @@ function Subjects(props) {
                 <p className="items">Date:11/12/1995</p>
                 <p className="items">Chapter:Matter</p>
                 <p className="items">Teacher: Mrs. Sanjana Singh</p>
-                {/* {submit && (
-                  <p className="items" style={{ color: "green" }}>
-                    <i class="bi bi-check-circle"></i>
-                    <span style={{ marginLeft: 5 }}>
-                      Submitted on 01/06/2021
-                    </span>
-                  </p>
-                )} */}
               </div>
+
               <Button
                 variant="primary"
                 size="md"
@@ -58,6 +52,31 @@ function Subjects(props) {
               >
                 See Assignment
               </Button>
+              {submit && (
+                <div style={{ marginTop: "10px" }}>
+                  <Button
+                    variant="primary"
+                    size="md"
+                    style={{ backgroundColor: "#207868", borderRadius: "10px" }}
+                    onClick={() => {
+                      history.push("/check-marks");
+                    }}
+                  >
+                    Check Marks
+                  </Button>
+                  <p
+                    style={{
+                      color: "#000000",
+                      backgroundColor: "#8DD7CF",
+                      marginTop: "10px",
+                    }}
+                  >
+                    <span style={{ marginLeft: 5 }}>
+                      Submitted on 01/06/2021
+                    </span>
+                  </p>
+                </div>
+              )}
             </Col>
           </Row>
           <Row className="rows">

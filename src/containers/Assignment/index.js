@@ -142,7 +142,9 @@ function Assignment(props) {
                     }`,
                   }}
                   block
-                  // onClick={handleShow}
+                  onClick={() => {
+                    history.push("/assignments?submit=true");
+                  }}
                 >
                   Submit Assignment
                 </Button>
