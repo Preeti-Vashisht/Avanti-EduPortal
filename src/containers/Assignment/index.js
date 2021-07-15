@@ -34,10 +34,10 @@ function Assignment(props) {
     setFiles((prevFiles) => [...prevFiles, fileObj]);
     console.log(files);
   };
-  const removeFile = (name) => {
-    let newFiles = files.filter((file) => file.name !== name);
-    setFiles(newFiles);
-  };
+  // const removeFile = (name) => {
+  //   let newFiles = files.filter((file) => file.name !== name);
+  //   setFiles(newFiles);
+  // };
 
   return (
     <div>
@@ -160,34 +160,15 @@ function Assignment(props) {
                       }}
                       onClick={handleShow(file.url)}
                       block
-                    >
-                      <span>
-                        {file.name}
-                        <i
-                          class="bi bi-x-circle"
-                          style={{ color: "#000" }}
-                          onClick={() => {
-                            removeFile(file.name);
-                          }}
-                        ></i>
-                      </span>
-                    </Button>
+                    ></Button>
                   ))}
-                {/* <SimpleModalSlideshow
-                  slides={slides}
-                  currentSlide={currentSlide}
-                  open={open}
-                  onClose={handleClose}
-                  onNext={handleNext}
-                  onPrev={handlePrev}
-                  classNamePrefix="modal-slideshow-example1"
-                /> */}
               </Col>
             </Row>
             <Row style={{ marginTop: "50px" }}>
-              <Col>
+              <Col style={{ width: "100%" }}>
                 <Worker workerUrl="https://unpkg.com/pdfjs-dist@2.6.347/build/pdf.worker.min.js">
                   <Viewer
+                    theme="bootstrap"
                     fileUrl={filePDF}
                     plugins={[defaultLayoutPluginInstance]}
                   />
