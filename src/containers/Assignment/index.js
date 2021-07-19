@@ -34,10 +34,6 @@ function Assignment(props) {
     setFiles((prevFiles) => [...prevFiles, fileObj]);
     console.log(files);
   };
-  // const removeFile = (name) => {
-  //   let newFiles = files.filter((file) => file.name !== name);
-  //   setFiles(newFiles);
-  // };
 
   return (
     <div>
@@ -58,31 +54,8 @@ function Assignment(props) {
         </Button>
         <hr style={{ marginTop: "4px", marginBottom: "0px" }} />
         <>
-          <Modal
-            show={show}
-            // fullscreen={fullscreen}
-            onHide={handleClose}
-            // dialogClassName="modal-90h"
-            aria-labelledby="contained-modal-title-vcenter"
-            centered
-          >
-            <Modal.Header closeButton>
-              <Modal.Title id="example-custom-modal-styling-title">
-                Custom Modal Styling
-              </Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-              {/* <img src={imgPreview} w-100 alt="imgPreview" /> */}
-              <h1>{imgPreview}</h1>
-            </Modal.Body>
-            <Modal.Footer>
-              <Button variant="secondary" onClick={handleClose}>
-                Cancel
-              </Button>
-            </Modal.Footer>
-          </Modal>
           <Container className="text-center">
-            <Row style={{ opacity: 0.3 }}>
+            <Row style={{ opacity: 0.6 }}>
               <Col md={{ span: 4, offset: 4 }}>
                 <h3
                   style={{
@@ -162,7 +135,9 @@ function Assignment(props) {
                       }}
                       onClick={handleShow(file.url)}
                       block
-                    ></Button>
+                    >
+                      {file.name}
+                    </Button>
                   ))}
               </Col>
             </Row>

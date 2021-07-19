@@ -94,7 +94,7 @@ function CheckGrades(props) {
               </Button>
             </Col>
           </Row>
-          <Row>
+          <Row style={{ backgroundColor: "#FFE8A4", borderRadius: "10px" }}>
             <Col style={{ margin: "10px", borderRadius: "15px" }}>
               <p>Marks*:</p>
             </Col>
@@ -120,7 +120,7 @@ function CheckGrades(props) {
               <p>5</p>
             </Col>
           </Row>
-          <Row>
+          <Row style={{ backgroundColor: "#FFE8A4" }}>
             <Col md={3} style={{ borderRadius: "15px" }}>
               <p>Comments:</p>
             </Col>
@@ -154,7 +154,7 @@ function CheckGrades(props) {
           >
             Question 2
           </Button>
-          <Row>
+          <Row style={{ backgroundColor: "#FFE8A4", borderRadius: "10px" }}>
             <Col style={{ margin: "10px", borderRadius: "15px" }}>
               <p>Marks*:</p>
             </Col>

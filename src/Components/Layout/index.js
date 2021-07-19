@@ -7,11 +7,7 @@ import "./style.css";
 function Layout(props) {
   return (
     <>
-      <div>
-        <Header />
-
-        {props.children}
-      </div>
+      <div>{props.children}</div>
     </>
   );
 }

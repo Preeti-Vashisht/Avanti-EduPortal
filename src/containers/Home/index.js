@@ -1,17 +1,40 @@
 import React from "react";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import { NavLink, useHistory } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
 import Footer from "../../Components/Footer";
 import Layout from "./../../Components/Layout";
+import { logout } from "./../../actions";
 import "./style.css";
 function Home(props) {
   const history = useHistory();
+  const dispatch = useDispatch();
   function handleClick(path) {
     history.push(path);
   }
+
+  const userlogout = (e) => {
+    e.preventDefault();
+    dispatch(logout());
+  };
   return (
     <>
       <Layout>
+        <Button
+          variant="primary"
+          size="md"
+          onClick={userlogout}
+          style={{
+            borderRadius: "15px",
+            backgroundColor: "#6558F5",
+            margin: "14px 10px  3px",
+            height: "35px",
+            borderColor: "none",
+          }}
+        >
+          Logout
+        </Button>
+        <hr style={{ marginTop: "4px", marginBottom: "0px" }} />
         <Container className=" text-center" fluid>
           <Row className="head">
             <Col>
