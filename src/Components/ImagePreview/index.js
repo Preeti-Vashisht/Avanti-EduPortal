@@ -1,7 +1,7 @@
-import { useHistory } from "react-router-dom";
+import React, { useState } from "react";
 import { Container, Button, Row, Col } from "react-bootstrap";
-export default function ViewAssignmentSlider(props) {
-  let history = useHistory();
+
+export default function ImagePreview(props) {
   const styles = {
     retake: {
       fontFamily: "IBM Plex Sans",
@@ -63,14 +63,8 @@ export default function ViewAssignmentSlider(props) {
           </h3>
         </Col>
       </Row>
-      <Row id="viewAssigmnetCanvas">
+      <Row>
         <Col>
-          <Button
-            style={styles.continue}
-            onClick={(event) => props.viewPrevAssignment()}
-          >
-            pre
-          </Button>
           {props.file.url && (
             <img
               className="img-fluid"
@@ -78,39 +72,43 @@ export default function ViewAssignmentSlider(props) {
               alt={props.file.name}
             ></img>
           )}
-          <Button
-            style={styles.continue}
-            onClick={(event) => props.viewNextAssignment()}
-          >
-            next
-          </Button>
         </Col>
       </Row>
-      <Row
-        id="viewAssigmnetFooter"
-        style={{
-          background: "rgba(0, 0, 0, 0.21)",
-          position: "absolute",
-          width: "100%",
-        }}
-      >
+      <Row style={{ margin: "15px", backgroundColor: "rgba(0, 0, 0, 0.21)" }}>
+        <input
+          type="file"
+          ref={props.fileInput}
+          onChange={props.assignmentRetake}
+          style={{ display: "none" }}
+        />
         <Button
           variant="primary"
           size="md"
           style={styles.retake}
           onClick={(event) => {
-            props.setShowAssignmentSlider(false);
+            props.fileInput.current.click();
           }}
         >
-          Back
+          Retake
+        </Button>
+
+        <Button
+          variant="primary"
+          size="md"
+          className="pull-right"
+          style={styles.continue}
+          onClick={() => props.setShowAssignment(false)}
+        >
+          Continue
         </Button>
         <Button
           variant="primary"
           size="md"
+          className="pull-right"
           style={styles.delete}
-          onClick={(event) => history.push("/assignments?submit=true")}
+          onClick={() => props.assignmentDelete()}
         >
-          Submit Assignment
+          Delete
         </Button>
       </Row>
     </Container>
