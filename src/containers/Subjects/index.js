@@ -17,7 +17,7 @@ function Subjects(props) {
         <Button
           variant="primary"
           size="md"
-          onClick={() => history.goBack()}
+          onClick={() => history.push("/")}
           style={{
             borderRadius: "15px",
             backgroundColor: "#6558F5",

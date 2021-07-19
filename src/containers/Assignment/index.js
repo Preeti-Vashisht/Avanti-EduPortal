@@ -16,6 +16,7 @@ function Assignment(props) {
   const [fullscreen, setFullscreen] = useState(true);
   const fileInput = React.useRef(null);
   const [show, setShow] = useState(false);
+
   const [imgPreview, setImagePreview] = useState();
   const [message, setMessage] = useState("");
 
@@ -41,7 +42,7 @@ function Assignment(props) {
         <Button
           variant="primary"
           size="md"
-          onClick={() => history.goBack()}
+          onClick={() => history.push("/")}
           style={{
             borderRadius: "15px",
             backgroundColor: "#6558F5",

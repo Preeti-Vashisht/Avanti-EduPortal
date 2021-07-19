@@ -1,17 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import { Jumbotron, Row, Col, Button, Container, Modal } from "react-bootstrap";
 import Layout from "../../Components/Layout";
 import { useHistory } from "react-router-dom";
 import "./style.css";
 function CheckGrades(props) {
   const history = useHistory();
+  const [notes] = useState("Please improve your handwriting");
   return (
     <div>
       <Layout>
         <Button
           variant="primary"
           size="md"
-          onClick={() => history.goBack()}
+          onClick={() => history.push("/")}
           style={{
             borderRadius: "15px",
             backgroundColor: "#6558F5",
@@ -24,7 +25,7 @@ function CheckGrades(props) {
         </Button>
         <hr style={{ marginTop: "4px", marginBottom: "0px" }} />
         <Container className="text-center">
-          <Row style={{ opacity: 0.3 }}>
+          <Row style={{ opacity: 0.6 }}>
             <Col md={{ span: 4, offset: 4 }}>
               <h3
                 style={{
@@ -66,35 +67,56 @@ function CheckGrades(props) {
               >
                 <span style={{ marginLeft: 5 }}>Checked</span>
               </p>
-              <h3 style={{ fontWeight: "bold" }}>Total Marks</h3>
+              <h3 style={{ fontWeight: "bold", fontSize: "25px" }}>
+                Total Marks
+              </h3>
               <Button
                 variant="primary"
                 size="lg"
                 style={{
                   backgroundColor: "#E6E8E6",
-                  borderRadius: "20px",
+                  borderRadius: "325px",
                   borderColor: "none",
                   paddingLeft: "40px",
                   paddingRight: "40px",
                   color: "#000",
+                  fontSize: "20px",
+                  borderColor: "none",
                 }}
               >
                 5/10
               </Button>
-              <h3 style={{ fontWeight: "bold", marginTop: "15px" }}>
+              <h3
+                style={{
+                  fontWeight: "bold",
+                  marginTop: "15px",
+                  marginBottom: "15px",
+                  fontSize: "25px",
+                }}
+              >
                 Teacher's Comments
               </h3>
               <Button
                 variant="primary"
                 size="md"
-                style={{ backgroundColor: "#6558F5", borderRadius: "10px" }}
+                style={{
+                  backgroundColor: "#6558F5",
+                  borderRadius: "10px",
+                  marginTop: "10px",
+                  marginBottom: "10px",
+                }}
                 block
               >
                 Question 1
               </Button>
             </Col>
           </Row>
-          <Row style={{ backgroundColor: "#FFE8A4", borderRadius: "10px" }}>
+          <Row
+            style={{
+              backgroundColor: "rgba(255, 232, 164, 0.38)",
+              borderRadius: "10px",
+            }}
+          >
             <Col style={{ margin: "10px", borderRadius: "15px" }}>
               <p>Marks*:</p>
             </Col>
@@ -120,24 +142,35 @@ function CheckGrades(props) {
               <p>5</p>
             </Col>
           </Row>
-          <Row style={{ backgroundColor: "#FFE8A4" }}>
-            <Col md={3} style={{ borderRadius: "15px" }}>
+          <Row style={{ backgroundColor: "rgba(255, 232, 164, 0.38)" }}>
+            <Col
+              md={2}
+              xs={3}
+              sm={2}
+              style={{
+                borderRadius: "15px",
+              }}
+            >
               <p>Comments:</p>
             </Col>
             <Col
               style={{
                 borderRadius: "15px",
               }}
-              className="text-right"
-              md={8}
+              md={9}
+              xs={9}
+              sm={8}
             >
               <textarea
+                value={notes}
                 style={{
                   backgroundColor: "#E5E5E5",
                   minWidth: "100%",
                   borderRadius: "15px",
                   border: "none",
                   borderStyle: "none",
+                  height: "80px",
+                  padding: "10px",
                 }}
               />
             </Col>
@@ -154,7 +187,12 @@ function CheckGrades(props) {
           >
             Question 2
           </Button>
-          <Row style={{ backgroundColor: "#FFE8A4", borderRadius: "10px" }}>
+          <Row
+            style={{
+              backgroundColor: "rgba(255, 232, 164, 0.38)",
+              borderRadius: "10px",
+            }}
+          >
             <Col style={{ margin: "10px", borderRadius: "15px" }}>
               <p>Marks*:</p>
             </Col>
