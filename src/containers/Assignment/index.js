@@ -129,73 +129,128 @@ function Assignment(props) {
                     </p>
                   </Col>
                 </Row>
-                <Row className="ans-submit">
-                  <Col md={{ span: 4, offset: 4 }}>
-                    <h3 style={{ fontSize: "20px", fontWeight: "bold" }}>
-                      Answer Submission
-                    </h3>
-                    <input
-                      type="file"
-                      ref={fileInput}
-                      onChange={uploadFiles}
-                      style={{ display: "none" }}
-                    />
+                {localStorage.getItem("submit") ? (
+                  <div style={{ marginTop: "10px" }}>
+                    <p
+                      style={{
+                        color: "#000000",
+                        opacity: "0.6",
+                        marginTop: "10px",
+                        fontSize: "17px",
+                      }}
+                    >
+                      <span style={{ marginLeft: 5 }}>
+                        Submitted on 01/06/2021
+                      </span>
+                    </p>
+                    <p
+                      style={{
+                        color: "#000000",
+                        backgroundColor: "#8DD7CF",
+                        marginTop: "10px",
+                        fontSize: "17px",
+                        height: "34px",
+                        lineHeight: "34px",
+                      }}
+                    >
+                      <span style={{ marginLeft: 5 }}>Checked</span>
+                    </p>
+                    <p style={{ fontSize: "25px", fontWeight: "bold" }}>
+                      Submitted Answer
+                    </p>
                     <Button
                       variant="primary"
                       size="md"
                       style={{
+                        backgroundColor: "#207868",
                         borderRadius: "10px",
-                        backgroundColor: "#6558F5",
-                        padding: "4px",
-                      }}
-                      block
-                      onClick={(event) => {
-                        fileInput.current.click();
                       }}
                     >
-                      Add Image
+                      <span style={{ marginRight: "8px" }}>
+                        <i className="bi bi-file-earmark-pdf"></i>
+                      </span>
+                      Physics_Gravity_Student_1
                     </Button>
-                    <Button
-                      variant="secondary"
-                      size="md"
+
+                    <p
                       style={{
-                        borderRadius: "10px",
-                        padding: "4px",
-                        backgroundColor: `${
-                          files.length > 0 ? "#207868" : "#6c757d"
-                        }`,
-                      }}
-                      block
-                      onClick={() => {
-                        if (files.length) {
-                          showAssignmentSliderHandler();
-                        }
+                        fontSize: "25px",
+                        fontWeight: "bold",
+                        marginTop: "10px",
                       }}
                     >
-                      Submit Assignment
-                    </Button>
-                    {files.length > 0 &&
-                      files.map((file, index) => (
-                        <Button
-                          variant="secondary"
-                          size="md"
-                          style={{
-                            borderRadius: "10px",
-                            padding: "4px",
-                            backgroundColor: "#C9C9C9",
-                            color: "#3664BE",
-                            textDecorationLine: "underline",
-                          }}
-                          onClick={() => {
-                            showAssignmentHandler(true, file, index);
-                          }}
-                          block
-                        >
-                          {file.name}
-                        </Button>
-                      ))}
-                  </Col>
-                </Row>
+                      Worksheet
+                    </p>
+                  </div>
+                ) : (
+                  <Row className="ans-submit">
+                    <Col md={{ span: 4, offset: 4 }}>
+                      <h3 style={{ fontSize: "20px", fontWeight: "bold" }}>
+                        Answer Submission
+                      </h3>
+                      <input
+                        type="file"
+                        ref={fileInput}
+                        onChange={uploadFiles}
+                        style={{ display: "none" }}
+                      />
+                      <Button
+                        variant="primary"
+                        size="md"
+                        style={{
+                          borderRadius: "10px",
+                          backgroundColor: "#6558F5",
+                          padding: "4px",
+                        }}
+                        block
+                        onClick={(event) => {
+                          fileInput.current.click();
+                        }}
+                      >
+                        Add Image
+                      </Button>
+                      <Button
+                        variant="secondary"
+                        size="md"
+                        style={{
+                          borderRadius: "10px",
+                          padding: "4px",
+                          backgroundColor: `${
+                            files.length > 0 ? "#207868" : "#6c757d"
+                          }`,
+                        }}
+                        block
+                        onClick={() => {
+                          if (files.length) {
+                            showAssignmentSliderHandler();
+                          }
+                        }}
+                      >
+                        Submit Assignment
+                      </Button>
+                      {files.length > 0 &&
+                        files.map((file, index) => (
+                          <Button
+                            variant="secondary"
+                            size="md"
+                            style={{
+                              borderRadius: "10px",
+                              padding: "4px",
+                              backgroundColor: "#C9C9C9",
+                              color: "#3664BE",
+                              textDecorationLine: "underline",
+                            }}
+                            onClick={() => {
+                              showAssignmentHandler(true, file, index);
+                            }}
+                            block
+                          >
+                            {file.name}
+                          </Button>
+                        ))}
+                    </Col>
+                  </Row>
+                )}
                 <Row style={{ marginTop: "50px" }}>
                   <Col style={{ width: "100%" }}>
                     <Worker workerUrl="https://unpkg.com/pdfjs-dist@2.6.347/build/pdf.worker.min.js">

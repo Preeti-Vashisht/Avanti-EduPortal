@@ -7,23 +7,37 @@ export default function ImageSlider(props) {
     <div>
       <div
         style={{
-          textAlign: "center",
           height: "5rem",
-
+          lineHeight: "5rem",
+          textAlign: "center",
           backgroundColor: "rgba(0, 0, 0, 0.21)",
         }}
       >
-        <h2>निश्चित करे कि आप अपना उत्तर पढ़ सकते हैं</h2>
+        <p>निश्चित करे कि आप अपना उत्तर पढ़ सकते हैं</p>
       </div>
 
-      <div style={{ textAlign: "center", height: "90%" }}>
+      <div style={{ textAlign: "center" }}>
         {props.file.url && (
-          <img
-            className="img-fluid"
-            src={props.file.url}
-            alt={props.file.name}
-            style={{ maxHeight: "100%", maxWidth: "100%" }}
-          ></img>
+          <>
+            <button
+              class="bi bi-chevron-left"
+              onClick={(event) => props.viewPrevAssignment()}
+              style={{
+                borderRadius: "20px",
+              }}
+            ></button>
+            <img
+              className="img-fluid"
+              src={props.file.url}
+              alt={props.file.name}
+              style={{ maxHeight: "100%", maxWidth: "80%" }}
+            ></img>
+            <button
+              class="bi bi-chevron-right"
+              onClick={(event) => props.viewNextAssignment()}
+              style={{ borderRadius: "20px" }}
+            ></button>
+          </>
         )}
       </div>
 
@@ -58,7 +72,10 @@ export default function ImageSlider(props) {
               <button
                 type="button"
                 class="btn "
-                onClick={(event) => history.push("/assignments?submit=true")}
+                onClick={(event) => {
+                  localStorage.setItem("submit", true);
+                  history.push("/assignments");
+                }}
                 style={{
                   backgroundColor: "#C53D3D",
                   borderRadius: "14px",

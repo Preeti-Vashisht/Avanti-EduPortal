@@ -26,10 +26,11 @@ function Home(props) {
           onClick={userlogout}
           style={{
             borderRadius: "15px",
-            backgroundColor: "#6558F5",
+            backgroundColor: "#e5e5e5",
             margin: "14px 10px  3px",
             height: "35px",
             borderColor: "none",
+            color: "black",
           }}
         >
           Logout
@@ -41,8 +42,8 @@ function Home(props) {
               <h1>Home Page</h1>
             </Col>
           </Row>
-          <div style={{ marginTop: "90px" }}>
-            <Row className="rows ">
+          <div style={{ marginTop: "150px" }}>
+            {/* <Row className="rows ">
               <Col md={{ span: 4, offset: 4 }}>
                 <Button
                   variant="primary"
@@ -71,7 +72,7 @@ function Home(props) {
                   Study Material
                 </Button>
               </Col>
-            </Row>
+            </Row> */}
 
             <Row className="rows">
               <Col md={{ span: 4, offset: 4 }}>
@@ -91,7 +92,6 @@ function Home(props) {
           </div>
         </Container>
       </Layout>
-      <Footer />
     </>
   );
 }

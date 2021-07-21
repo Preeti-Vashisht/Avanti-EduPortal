@@ -5,9 +5,11 @@ import { useHistory } from "react-router-dom";
 import "./style.css";
 function Subjects(props) {
   const history = useHistory();
-  const submit = props.location.search
-    ? props.location.search.split("=")[1]
-    : false;
+
+  const submit = localStorage.getItem("submit");
+  // props.location.search
+  //   ? props.location.search.split("=")[1]
+  //   : false;
   const viewAssignmentHandler = () => {
     history.push("/view-assignment");
   };
@@ -117,9 +119,6 @@ function Subjects(props) {
           </Row>
         </Container>
       </Layout>
-      <div className="footr">
-        <p>Contact Customer Support</p>
-      </div>
     </>
   );
 }
