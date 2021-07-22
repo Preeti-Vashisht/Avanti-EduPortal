@@ -13,7 +13,7 @@ export default function ImageSlider(props) {
           backgroundColor: "rgba(0, 0, 0, 0.21)",
         }}
       >
-        <p>निश्चित करे कि आप अपना उत्तर पढ़ सकते हैं</p>
+        <p>आपके शिक्षक को फ़ोटो इस तरह दिखेगी</p>
       </div>
 
       <div style={{ textAlign: "center" }}>
@@ -77,7 +77,7 @@ export default function ImageSlider(props) {
                   history.push("/assignments");
                 }}
                 style={{
-                  backgroundColor: "#C53D3D",
+                  backgroundColor: "#207868",
                   borderRadius: "14px",
                   margin: "10px",
                 }}
