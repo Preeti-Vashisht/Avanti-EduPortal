@@ -21,7 +21,6 @@ function Home(props) {
     <>
       <Layout>
         <Button
-          variant="primary"
           size="md"
           onClick={userlogout}
           style={{
@@ -29,11 +28,12 @@ function Home(props) {
             backgroundColor: "#e5e5e5",
             margin: "14px 10px  3px",
             height: "35px",
-            borderColor: "none",
+            borderColor: "#e5e5e5",
             color: "black",
+            lineHeight: "20px",
           }}
         >
-          Logout
+          {"< Log Out"}
         </Button>
         <hr style={{ marginTop: "4px", marginBottom: "0px" }} />
         <Container className=" text-center" fluid>

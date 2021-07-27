@@ -18,6 +18,7 @@ function CheckGrades(props) {
             backgroundColor: "#6558F5",
             margin: "14px 10px  3px",
             height: "35px",
+            lineHeight: "20px",
             borderColor: "none",
           }}
         >
@@ -25,12 +26,12 @@ function CheckGrades(props) {
         </Button>
         <hr style={{ marginTop: "4px", marginBottom: "0px" }} />
         <Container className="text-center">
-          <Row style={{ opacity: 0.6 }}>
+          <Row style={{ opacity: 0.8 }}>
             <Col md={{ span: 4, offset: 4 }}>
               <h3
                 style={{
                   marginTop: "9px",
-                  marginBottom: "0.1rem",
+                  marginBottom: "0.6rem",
                   fontSize: "25px",
                   fontWeight: "700",
                 }}
@@ -38,7 +39,7 @@ function CheckGrades(props) {
                 Physics
               </h3>
               <p style={{ marginBottom: "0.1rem", fontSize: "10px" }}>
-                Date:11/06/2021
+                11/06/2021
               </p>
               <p style={{ marginBottom: "0.1rem", fontSize: "10px" }}>
                 Chapter:Gravity
@@ -54,34 +55,32 @@ function CheckGrades(props) {
               >
                 Submitted on 01/06/2021
               </p>
-            </Col>
-          </Row>
-          <Row>
-            <Col>
               <p
                 style={{
                   color: "#000000",
                   backgroundColor: "#8DD7CF",
-                  marginTop: "10px",
                 }}
               >
                 <span style={{ marginLeft: 5 }}>Checked</span>
               </p>
+            </Col>
+          </Row>
+          <Row>
+            <Col>
               <h3 style={{ fontWeight: "bold", fontSize: "25px" }}>
                 Total Marks
               </h3>
               <Button
-                variant="primary"
                 size="lg"
                 style={{
                   backgroundColor: "#E6E8E6",
                   borderRadius: "325px",
-                  borderColor: "none",
+                  borderColor: "#E6E8E6",
                   paddingLeft: "40px",
                   paddingRight: "40px",
                   color: "#000",
                   fontSize: "20px",
-                  borderColor: "none",
+                  marginTop: "10px",
                 }}
               >
                 5/10
@@ -103,7 +102,8 @@ function CheckGrades(props) {
                   backgroundColor: "#6558F5",
                   borderRadius: "10px",
                   marginTop: "10px",
-                  marginBottom: "10px",
+                  height: "27px",
+                  lineHeight: "13px",
                 }}
                 block
               >
@@ -115,6 +115,8 @@ function CheckGrades(props) {
             style={{
               backgroundColor: "rgba(255, 232, 164, 0.38)",
               borderRadius: "10px",
+              marginRight: "1px",
+              marginLeft: "1px",
             }}
           >
             <Col style={{ margin: "10px", borderRadius: "15px" }}>
@@ -127,7 +129,7 @@ function CheckGrades(props) {
                 backgroundColor: "#E5E5E5",
               }}
             >
-              <p>3</p>
+              <p style={{ width: "90" }}>3</p>
             </Col>
             <Col style={{ margin: "10px", borderRadius: "15px" }}>
               <p>outof</p>
@@ -142,7 +144,12 @@ function CheckGrades(props) {
               <p>5</p>
             </Col>
           </Row>
-          <Row style={{ backgroundColor: "rgba(255, 232, 164, 0.38)" }}>
+          <Row
+            style={{
+              backgroundColor: "rgba(255, 232, 164, 0.38)",
+              margin: "3px",
+            }}
+          >
             <Col
               md={2}
               xs={3}
@@ -182,6 +189,8 @@ function CheckGrades(props) {
               backgroundColor: "#6558F5",
               borderRadius: "10px",
               marginTop: "20px",
+              height: "27px",
+              lineHeight: "13px",
             }}
             block
           >
@@ -191,6 +200,8 @@ function CheckGrades(props) {
             style={{
               backgroundColor: "rgba(255, 232, 164, 0.38)",
               borderRadius: "10px",
+              marginRight: "1px",
+              marginLeft: "1px",
             }}
           >
             <Col style={{ margin: "10px", borderRadius: "15px" }}>

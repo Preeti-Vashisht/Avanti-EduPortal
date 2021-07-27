@@ -25,6 +25,7 @@ function Subjects(props) {
             backgroundColor: "#6558F5",
             margin: "14px 10px  3px",
             height: "35px",
+            lineHeight: "20px",
             borderColor: "none",
           }}
         >
