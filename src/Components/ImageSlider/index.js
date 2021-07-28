@@ -16,7 +16,7 @@ export default function ImageSlider(props) {
         <p>आपके शिक्षक को फ़ोटो इस तरह दिखेगी</p>
       </div>
 
-      <div style={{ textAlign: "center" }}>
+      <div style={{ textAlign: "center", height: "80%" }}>
         {props.file.url && (
           <>
             <button
@@ -27,10 +27,9 @@ export default function ImageSlider(props) {
               }}
             ></button>
             <img
-              className="img-fluid"
               src={props.file.url}
               alt={props.file.name}
-              style={{ maxHeight: "100%", maxWidth: "80%" }}
+              style={{ maxHeight: "80%", maxWidth: "75%" }}
             ></img>
             <button
               class="bi bi-chevron-right"

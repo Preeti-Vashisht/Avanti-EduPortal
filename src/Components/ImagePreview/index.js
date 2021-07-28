@@ -4,7 +4,7 @@ import Layout from "../Layout";
 
 export default function ImagePreview(props) {
   return (
-    <div>
+    <div style={{ height: "80%" }}>
       <div
         style={{
           textAlign: "center",
@@ -21,7 +21,7 @@ export default function ImagePreview(props) {
             className="img-fluid"
             src={props.file.url}
             alt={props.file.name}
-            style={{ maxHeight: "100%", maxWidth: "100%" }}
+            style={{ maxHeight: "50%", maxWidth: "100%" }}
           ></img>
         )}
       </div>
